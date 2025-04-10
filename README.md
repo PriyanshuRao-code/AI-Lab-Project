@@ -51,6 +51,7 @@ Below are the functions in `team_24_supervised_learning.ipynb`, along with their
 | `evaluate_model` | `y_true, y_pred, model_name="Model"` | `accuracy, precision, recall, f1` |
 | `train_model_logistic` | `df_train, df_valid, df_test, target_column="Hazardous"` | `logistic_reg, y_valid, y_test, y_val_pred, y_test_pred` |
 | `train_model_svc` | `df_train, df_valid, df_test, target_column="Hazardous", method='linear'` | `model, y_valid, y_test, y_val_pred, y_test_pred` |
+| `train_model_random_forest` | `df_train, df_valid, df_test, target_column="Hazardous"` | `random_forest, y_valid_rf, y_test_rf, y_valid_pred_rf, y_test_pred_rf` |
 
 ---
 
