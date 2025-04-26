@@ -28,12 +28,24 @@ Below are the functions in `team_24_data_preprocessing.ipynb`, along with their 
 | `normalize_minmax` | `df_train_orig, df_valid_orig, df_test_orig` | `df_train, df_valid, df_test` |
 | `standardize_data` | `df_train_orig, df_valid_orig, df_test_orig` | `df_train, df_valid, df_test` |
 | `label_encode_categorical` | `df_train, df_valid, df_test` | `df_train, df_valid, df_test` |
-| `select_high_corr_features` | `df_train, df_valid, df_test, target_col="Hazardous", top_n=3` | `df_train[selected_features], df_valid[selected_features], df_test[selected_features]` |
-| `perform_pca` | `df_train, df_valid, df_test, n_components=3` | `df_train_pca, df_valid_pca, df_test_pca` |
-| `numeric_conversion` | `df_orig, one_hot_encode_month=False` | `df` |
+| `select_high_corr_features` | `df_train, df_valid, df_test, target_col="Hazardous", top_n=3` | `df_train[selected_features + [target_col]], df_valid[selected_features + [target_col]], df_test[selected_features + [target_col]]` |
+| `perform_pca` | `df_train, df_valid, df_test, target_col="Hazardous", n_components=11` | `df_train_pca, df_valid_pca, df_test_pca` |
+| `numeric_conversion` | `df_orig` | `df` |
 | `normalize_date_features` | `df, month_cols, year_cols` | `df` |
-| `process_splits` | `df_train, df_valid, df_test, one_hot_encode_month=False` | `df_train, df_valid, df_test` |
+| `feature_extraction` | `df_train, df_valid, df_test` | `df_train, df_valid, df_test` |
 | `data_preprocessing` | `df` | `df_final_train, df_final_valid, df_final_test` |
+| `data_gausian` | `df` | `df_train, df_valid, df_test` |
+| `data_knn1` | `df` | `df_train, df_valid, df_test` |
+| `data_knn2` | `df` | `df_train, df_valid, df_test` |
+| `data_logistic` | `df` | `df_train, df_valid, df_test` |
+| `data_perceptron` | `df` | `df_train, df_valid, df_test` |
+| `data_random_forest` | `df` | `df_train, df_valid, df_test` |
+| `data_random_forest1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc2` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_poly` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_rbf1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_rbf2` | `df` | `df_train, df_valid, df_test` |
 
 ---
 
@@ -42,19 +54,38 @@ Below are the functions in `team_24_supervised_learning.ipynb`, along with their
 
 | Function Name | Arguments | Returns |
 |---------------|-----------|---------|
+| `set_seeds` | `seed=42` | `[Nothing returned or dynamic logic]` |
 | `x_y_separation` | `df_train, df_valid, df_test, target_column="Hazardous"` | `X_train, y_train, X_valid, y_valid, X_test, y_test` |
-| `train_model_perceptron` | `df_train, df_valid, df_test, target_column = "Hazardous", num_epochs=2000, lr=0.0001` | `perceptron_model, y_valid_numpy, y_test_numpy, y_valid_pred_nn, y_test_pred_nn` |
+| `__init__` | `self, input_dim` | `[Nothing returned or dynamic logic]` |
+| `forward` | `self, x` | `x` |
+| `__init__` | `self, input_size, hidden_layers` | `[Nothing returned or dynamic logic]` |
+| `forward` | `self, x` | `self.model(x)` |
+| `train_model_perceptron` | `df_train, df_valid, df_test, target_column = "Hazardous", num_epochs=2000, lr=0.0001, seed = 42` | `perceptron_model, y_valid_numpy, y_test_numpy, y_valid_pred_nn, y_test_pred_nn` |
+| `apply_smote` | `X, y, seed=42` | `X_res, y_res` |
+| `oversample_data` | `X, y, seed=42` | `X_res, y_res` |
+| `undersample_data` | `X, y, seed=42` | `X_res, y_res` |
+| `train_model_fcnn` | `df_train, df_valid, df_test, target_column="Hazardous", num_epochs=2000, lr=0.0001, hidden_layers_list = [[10],[17],[31],[64],[100]],seed=42` | `model, y_valid_numpy, y_test_numpy, y_valid_pred, y_test_pred` |
 | `train_model_gaussian` | `df_train, df_valid, df_test, target_column="Hazardous"` | `naiveBayes, y_valid_nb, y_test_nb, y_valid_pred_nb, y_test_pred_nb` |
 | `mahalanobis_distance` | `x, mean, inv_cov_matrix` | `mahal_dist` |
 | `knn_mahalanobis` | `X_train, y_train, X_test, K` | `np.array(y_pred)` |
-| `train_model_knn` | `df_train, df_valid, df_test, target_column="Hazardous", k_values = [1, 3, 5, 7, 11]` | `knn_final, y_valid_knn, y_test_knn, y_valid_pred_knn, y_test_pred_knn` |
+| `train_model_knn` | `df_train, df_valid, df_test, target_column="Hazardous", k_values = [1, 3]` | `knn_final, y_valid_knn, y_test_knn, y_valid_pred_knn, y_test_pred_knn` |
+| `train_model_logistic` | `df_train, df_valid, df_test, target_column="Hazardous", solver='sag',max_iter=2000` | `logistic_reg, y_valid, y_test, y_val_pred, y_test_pred` |
+| `train_model_svc` | `df_train, df_valid, df_test, target_column="Hazardous"` | `model, y_valid, y_test, y_val_pred, y_test_pred` |
+| `train_model_svc_rbf` | `df_train, df_valid, df_test, target_column="Hazardous"` | `model, y_valid, y_test, y_val_pred, y_test_pred` |
+| `train_model_svc_poly` | `df_train, df_valid, df_test, target_column="Hazardous"` | `model, y_valid, y_test, y_val_pred, y_test_pred` |
+| `train_model_random_forest` | `df_train, df_valid, df_test, target_column="Hazardous", n_estimators=100, random_state=42` | `random_forest, y_valid_rf, y_test_rf, y_valid_pred_rf, y_test_pred_rf` |
 | `evaluate_model` | `y_true, y_pred, model_name="Model"` | `accuracy, precision, recall, f1` |
-| `train_model_logistic` | `df_train, df_valid, df_test, target_column="Hazardous"` | `logistic_reg, y_valid, y_test, y_val_pred, y_test_pred` |
-| `train_model_svc` | `df_train, df_valid, df_test, target_column="Hazardous", method='linear'` | `model, y_valid, y_test, y_val_pred, y_test_pred` |
-| `train_model_random_forest` | `df_train, df_valid, df_test, target_column="Hazardous"` | `random_forest, y_valid_rf, y_test_rf, y_valid_pred_rf, y_test_pred_rf` |
 
 ---
+## 📄 team_24.ipynb
+Below are the functions in `team_24.ipynb`, along with their return values:
 
+| Function Name | Arguments | Returns |
+|---------------|-----------|---------|
+| `data_preparation` | `df_train, df_valid, df_test, method` | `df_train, df_valid, df_test` |
+| `evaluate_model` | `y_true, y_pred, y_score=None` | `metrics` |
+
+---
 
 
 ## Usage  
