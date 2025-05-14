@@ -68,7 +68,6 @@ Made with 🤍 by:
 * Streamlined evaluation and visualization.
 ---
 
-
 ## 🎯 Usage
 
 There are two ways to run this project:
@@ -118,6 +117,23 @@ notebooks/team_24.ipynb
 ```
 
 > This notebook is compatible with Google Colab and supports GPU/TPU acceleration for fast experimentation.
+
+---
+
+### 🔹 Option 3: Explore via Streamlit Dashboard
+
+To explore the results interactively on a hosted web app:
+
+🔗 Live App:
+👉 [https://ai-dashboard-team-24.streamlit.app/](https://ai-dashboard-team-24.streamlit.app/)
+
+🛠️ Source Code:
+👉 [https://github.com/PriyanshuRao-code/Streamlit.git](https://github.com/PriyanshuRao-code/Streamlit.git)
+
+> This dashboard visualizes model comparisons, preprocessing results, and evaluation metrics. Ideal for quick insights without running code locally.
+
+---
+
 
 # 📘 Functions & Return Values
 
