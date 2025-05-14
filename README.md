@@ -1,19 +1,123 @@
-# AI-Lab-Project
+# 🚀 NASA Asteroid Hazard Prediction
 
-# Identifying Hazardous Near-Earth Asteroids  
+This project predicts whether an asteroid is hazardous or not using multiple machine learning models. The pipeline includes detailed data preprocessing, model training, and performance evaluation. Built using Jupyter Notebooks and deployed with Streamlit.
 
-## Overview  
-This project classifies near-Earth asteroids as **hazardous or non-hazardous** using **machine learning**. The dataset, sourced from **NASA’s NeoWs**, includes asteroid details like size, velocity, and orbital data.  
+---
+## 📂 Repository Structure
+```plaintext
+├── 📂 notebooks
+│   ├── 📄 24.csv
+│   ├── 📄 team_24.ipynb
+│   ├── 📄 team_24_data_preprocessing.ipynb
+│   └── 📄 team_24_supervised_learning.ipynb
+|
+└── 📂 src
+    ├── 📄 24.csv
+    ├── 🐍 Team24_Code_Data_Preprocessing.py
+    ├── 🐍 Team24_Code_Main.py
+    └── 🐍 Team24_Code_Supervised_Learning.py
 
-## Dataset  
-- **Key Features**: Orbital parameters, size, velocity, and approach distance.  
-- **Target**: Binary classification (Hazardous/Non-Hazardous).  
+├── 📂 branch_archives
+│   ├── 📂 Analysis_in_main_branch
+│   ├── 📂 Armaan
+│   ├── 📂 Priyanshu-Rao
+│   ├── 📂 Sai-Lohith
+│   └── 📂 riya
+│
+├── 📄 24.csv
+├── 📖 README.md
+├── 📑 Team24.pdf
+├── 📝 requirements.txt
+```
 
-## Methodology  
-1. **Preprocessing** – Cleaning and normalizing data.  
-2. **Feature Selection** – Identifying important asteroid properties.  
-3. **Model Training** – Using classification algorithms.  
-4. **Evaluation** – Accuracy, precision, and F1-score.  
+
+
+## 📖 Report
+
+* Final project write‑up available on Overleaf: [AI Lab Project Report](https://www.overleaf.com/read/chzbsnwbrbbb#86e70a)
+
+---
+
+## 💫 ——— Credits ——— 💫
+
+Made with 🤍 by:
+
+- 👨‍💻 Priyanshu Rao
+- 👩‍💻 Armaan Fatima  
+- 👩‍💻 Riya Chitnis  
+- 👨‍💻 Chittala Venkata Sai Lohith
+
+---
+
+## 📂 Files Overview
+
+### 🔧 `team_24_data_preprocessing.ipynb`
+
+* Prepares the dataset for modeling.
+* Handles null values, label encoding, normalization, PCA, correlation filtering, and outlier removal.
+* Also includes preprocessing tailored for specific ML models.
+
+### 🤖 `team_24_supervised_learning.ipynb`
+
+* Trains a wide range of machine learning models (Perceptron, FCNN, Logistic Regression, SVC, Random Forest, Gaussian, KNN).
+* Performs SMOTE, over/under-sampling.
+
+### 🧠 `team_24.ipynb`
+
+* Integrates preprocessing and model training into a single pipeline.
+* Streamlined evaluation and visualization.
+---
+
+
+## 🎯 Usage
+
+There are two ways to run this project:
+
+### 🔹 Option 1: Run via Python Script
+
+Clone the repo and set up the environment:
+```bash
+git clone https://github.com/PriyanshuRao-code/AI-Lab-Project.git
+cd AI-Lab-Project
+pip install -r requirements.txt
+````
+
+Now run the full pipeline using the code from the src/ folder or the unified script:
+
+```bash
+python Team24_Code_Main.py
+```
+
+> This script will execute the entire pipeline using the preprocessed data and currently enabled model(s).
+> 🟢 By default, only "Random Forest" is active to reduce training time.
+
+To enable additional models (Perceptron, Logistic Regression, etc.), uncomment the respective lines inside the models dictionary in Team24\_Code\_Main.py:
+
+```python
+models = {
+    # "Perceptron": train_model_perceptron,
+    # "Logistic Regression": train_model_logistic,
+    # "KNN": train_model_knn,
+    # "Gausian": train_model_gaussian,
+    # "SVC": train_model_svc,
+    "Random_Forest": train_model_random_forest,
+    # "SVC_poly": train_model_svc_poly,
+    # "SVC_rbf": train_model_svc_rbf,
+    # "FCNN": train_model_fcnn
+}
+```
+
+---
+
+### 🔹 Option 2: Run via Jupyter Notebook
+
+If you prefer a more interactive and visual interface, open the following notebook:
+
+```bash
+notebooks/team_24.ipynb
+```
+
+> This notebook is compatible with Google Colab and supports GPU/TPU acceleration for fast experimentation.
 
 # 📘 Functions & Return Values
 
@@ -87,8 +191,24 @@ Below are the functions in `team_24.ipynb`, along with their return values:
 
 ---
 
+## 🧩 Note on Preprocessing Functions
+The following functions are included in both team\_24\_data\_preprocessing.ipynb and Team24\_Code\_Data\_Preprocessing.py to support individual report components and learning visualizations:
 
-## Usage  
-Clone the repo and run the script:  
-```bash
-git clone https://github.com/PriyanshuRao-code/AI-Lab-Project.git
+| Function Name | Arguments | Returns |
+|---------------|-----------|---------|
+| `data_preprocessing` | `df` | `df_final_train, df_final_valid, df_final_test` |
+| `data_gausian` | `df` | `df_train, df_valid, df_test` |
+| `data_knn1` | `df` | `df_train, df_valid, df_test` |
+| `data_knn2` | `df` | `df_train, df_valid, df_test` |
+| `data_logistic` | `df` | `df_train, df_valid, df_test` |
+| `data_perceptron` | `df` | `df_train, df_valid, df_test` |
+| `data_random_forest` | `df` | `df_train, df_valid, df_test` |
+| `data_random_forest1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc2` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_poly` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_rbf1` | `df` | `df_train, df_valid, df_test` |
+| `data_svc_rbf2` | `df` | `df_train, df_valid, df_test` |
+
+These are meant to generate different stages of preprocessed data used for plots, evaluation matrices, and visual comparisons in the final report.
+
