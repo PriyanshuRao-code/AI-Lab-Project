@@ -145,124 +145,126 @@ df_results = pd.json_normalize(results, sep='_')
 
 print(df_results)
 
-# Bar Plot
-
-
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_outlier')
-plt.xticks(rotation=45)
-plt.title("Test F1 Score Comparison")
-plt.show()
-
-
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_encode')
-plt.xticks(rotation=45)
-plt.title("Test F1 Score Comparison")
-plt.show()
-
-
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_scale')
-plt.xticks(rotation=45)
-plt.title("Test F1 Score Comparison")
-plt.show()
-
-
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_correlation')
-plt.xticks(rotation=45)
-plt.title("Test F1 Score Comparison")
-plt.show()
+# Non useful results (Just for our testing)
 
 # Bar Plot
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_outlier')
-plt.xticks(rotation=45)
-plt.title("Test Recall Comparison")
-plt.show()
 
 
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_encode')
-plt.xticks(rotation=45)
-plt.title("Test Recall Comparison")
-plt.show()
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_outlier')
+# plt.xticks(rotation=45)
+# plt.title("Test F1 Score Comparison")
+# plt.show()
 
 
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_scale')
-plt.xticks(rotation=45)
-plt.title("Test Recall Comparison")
-plt.show()
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_encode')
+# plt.xticks(rotation=45)
+# plt.title("Test F1 Score Comparison")
+# plt.show()
+
+
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_scale')
+# plt.xticks(rotation=45)
+# plt.title("Test F1 Score Comparison")
+# plt.show()
+
+
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_f1_score', hue='data_preprocessing_methods_correlation')
+# plt.xticks(rotation=45)
+# plt.title("Test F1 Score Comparison")
+# plt.show()
+
+# # Bar Plot
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_outlier')
+# plt.xticks(rotation=45)
+# plt.title("Test Recall Comparison")
+# plt.show()
+
+
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_encode')
+# plt.xticks(rotation=45)
+# plt.title("Test Recall Comparison")
+# plt.show()
+
+
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_scale')
+# plt.xticks(rotation=45)
+# plt.title("Test Recall Comparison")
+# plt.show()
 
 
 
-plt.figure(figsize=(12,6))
-sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_correlation')
-plt.xticks(rotation=45)
-plt.title("Test Recall Comparison")
-plt.show()
+# plt.figure(figsize=(12,6))
+# sns.barplot(data=df_results, x='model', y='test_recall', hue='data_preprocessing_methods_correlation')
+# plt.xticks(rotation=45)
+# plt.title("Test Recall Comparison")
+# plt.show()
 
-# Heatmap
+# # Heatmap
 
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_outlier', values='valid_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Validation F1-Score Heatmap (data preprocessing outlier Wise)")
-plt.show()
-
-
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_encode', values='valid_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Validation F1-Score Heatmap (data preprocessing encode Wise)")
-plt.show()
-
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_scale', values='valid_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Validation F1-Score Heatmap (data preprocessing scale Wise)")
-plt.show()
-
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_correlation', values='valid_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Validation F1-Score Heatmap (data preprocessing outlier Wise)")
-plt.show()
-
-# Heatmap
-
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_outlier', values='test_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Test F1-Score Heatmap (data preprocessing outlier Wise)")
-plt.show()
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_outlier', values='valid_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Validation F1-Score Heatmap (data preprocessing outlier Wise)")
+# plt.show()
 
 
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_encode', values='test_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Test F1-Score Heatmap (data preprocessing encode Wise)")
-plt.show()
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_encode', values='valid_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Validation F1-Score Heatmap (data preprocessing encode Wise)")
+# plt.show()
 
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_scale', values='test_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Test F1-Score Heatmap (data preprocessing scale Wise)")
-plt.show()
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_scale', values='valid_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Validation F1-Score Heatmap (data preprocessing scale Wise)")
+# plt.show()
 
-pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_correlation', values='test_f1_score', aggfunc='mean')
-plt.figure(figsize=(14,7))
-sns.heatmap(pivot, annot=True, cmap='coolwarm')
-plt.title("Test F1-Score Heatmap (data preprocessing outlier Wise)")
-plt.show()
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_correlation', values='valid_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Validation F1-Score Heatmap (data preprocessing outlier Wise)")
+# plt.show()
 
-# Scatter Plot
+# # Heatmap
+
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_outlier', values='test_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Test F1-Score Heatmap (data preprocessing outlier Wise)")
+# plt.show()
 
 
-plt.figure(figsize=(10,6))
-sns.scatterplot(data=df_results, x='valid_accuracy', y='valid_f1_score', hue='model', style='data_preprocessing_methods_outlier')
-plt.title("Accuracy vs F1-Score for different Pipelines & Models")
-plt.show()
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_encode', values='test_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Test F1-Score Heatmap (data preprocessing encode Wise)")
+# plt.show()
+
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_scale', values='test_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Test F1-Score Heatmap (data preprocessing scale Wise)")
+# plt.show()
+
+# pivot = df_results.pivot_table(index='model', columns='data_preprocessing_methods_correlation', values='test_f1_score', aggfunc='mean')
+# plt.figure(figsize=(14,7))
+# sns.heatmap(pivot, annot=True, cmap='coolwarm')
+# plt.title("Test F1-Score Heatmap (data preprocessing outlier Wise)")
+# plt.show()
+
+# # Scatter Plot
+
+
+# plt.figure(figsize=(10,6))
+# sns.scatterplot(data=df_results, x='valid_accuracy', y='valid_f1_score', hue='model', style='data_preprocessing_methods_outlier')
+# plt.title("Accuracy vs F1-Score for different Pipelines & Models")
+# plt.show()
 
