@@ -120,6 +120,21 @@ notebooks/team_24.ipynb
 
 ---
 
+📌 **Note for Google Colab users**:
+In our Colab environment, we directly set the working directory to:
+
+```
+/content/AI-Lab-Project/notebooks
+```
+
+This means:
+
+* All imports like `from team_24_data_preprocessing import *` assume that you are inside the `notebooks/` folder.
+* We do **not use or depend on files outside `notebooks/`**, unless explicitly mentioned.
+* This helps avoid path errors and simplifies module imports via `import-ipynb`.
+
+---
+
 ### 🔹 Option 3: Explore via Streamlit Dashboard
 
 To explore the results interactively on a hosted web app:
