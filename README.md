@@ -147,7 +147,15 @@ To explore the results interactively on a hosted web app:
 
 > This dashboard visualizes model comparisons, preprocessing results, and evaluation metrics. Ideal for quick insights without running code locally.
 
+⚠️ **Note:** Certain combinations such as:
+
+* `pca = True` with `encode = "feature-extraction"`, and
+* `pca = True` with `select_high_corr = True`
+
+...are **intentionally skipped** in the backend logic for stability or relevance, and hence **won't appear in the dashboard results**.
+
 ---
+
 
 
 # 📘 Functions & Return Values
